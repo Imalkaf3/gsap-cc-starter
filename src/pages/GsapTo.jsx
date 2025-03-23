@@ -1,5 +1,25 @@
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+
 const GsapTo = () => {
-  // TODO: Implement the gsap.to() method
+  useEffect(() => {
+    // Rotate the box forever
+    gsap.to("#red-box", {
+      rotation: 720, // Rotate 360 degrees
+      duration: 2, // Duration of one rotation
+      repeat: -1, // Infinite repetition
+      ease: "linear", // Smooth linear rotation
+    });
+
+    // Flickering fire effect
+    gsap.to("#blue-box", {
+      boxShadow: "0 0 30px 10px rgba(255, 69, 0, 0.8)", // Fire-like glow
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true, // Flicker effect
+      ease: "power1.inOut",
+    });
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
     <main>
